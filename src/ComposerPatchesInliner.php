@@ -279,6 +279,12 @@ EAT
                 $output->writeln("  Package: {$package}");
                 $output->writeln("  Description: {$description}");
 
+                if (file_exists($url)) {
+                    $output->writeln("  Local file: {$url}");
+                    $output->writeln("    Skip inlining");
+                    continue;
+                }
+
                 $filename = $this->generatePatchFilename( $package, $description);
                 $localPath = $patchesDir . $filename;
                 if (!isset($downloadedPatches[$package])) {
