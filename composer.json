@@ -1,0 +1,49 @@
+{
+    "name": "candoimage/composer-patches-inliner",
+    "description": "Cando Image workaround helper for https://github.com/orgs/community/discussions/157887. Run composer composer-patches-inliner ./patches",
+    "type": "composer-plugin",
+    "license": "MIT",
+    "version": "1.0.0",
+    "keywords": [
+        "Cando Image",
+        "github",
+        "composer",
+        "patches",
+        "enshittifcation"
+    ],
+    "authors": [
+        {
+            "name": "Peter Philipp",
+            "email": "peter.philipp@cando-image.com"
+        }
+    ],
+    "bin": [
+        "composer-patches-inliner"
+    ],
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "allow-plugins": {
+            "cweagans/composer-patches": true
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Cando\\ComposerPatchesInliner\\Plugin\\Composer\\": "src/"
+        }
+    },
+    "extra": {
+        "class": "Cando\\ComposerPatchesInliner\\Plugin\\Composer\\ComposerPlugin"
+    },
+    "require": {
+        "php": ">=8.0.0",
+        "composer-plugin-api": "^1.1|^2.0",
+        "cweagans/composer-patches": "^1.5",
+        "symfony/console": "^3.4|^4.0|^5.0|^6.0|^7.0"
+    },
+    "require-dev": {
+        "composer/composer": "*",
+        "phpunit/phpunit": "~4.6",
+        "squizlabs/php_codesniffer": "*"
+    }
+}
