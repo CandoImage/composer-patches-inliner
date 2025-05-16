@@ -7,3 +7,11 @@ particularly the version patched with: https://github.com/cweagans/composer-patc
 
 The package downloads / inlines all remote patches into the project root and creates a composer patches file for cweagans/composer-patches to use.
 On known rate-limited domains the download happens with a delay which should suffice to avoid hitting the rate limit.
+
+Usage:
+
+```shell
+composer composer-patches-inliner ./patches
+```
+
+This will download all remote patches registered in your project and its dependencies into the `./patches` directory.
